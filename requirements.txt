@@ -1,0 +1,9 @@
+pandas
+fake_useragent
+xlrd==1.2.0 
+flask==1.2.0
+Werkzeug==0.16.1
+#sudo apt install python3.7-distutils	
+#pip3 install --upgrade Werkzeug==0.16.1
+#curl -O https://bootstrap.pypa.io/get-pip.py
+#!python3.7 get-pip.py

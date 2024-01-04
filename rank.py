@@ -9,6 +9,14 @@ import datetime
 import csv
 import pandas as pd
 import time
+from fake_useragent import UserAgent
+
+# ...
+
+# Create a UserAgent object
+ua = UserAgent()
+
+# ...
 
 # 添加以下导入语句用于处理代理
 import requests
@@ -68,9 +76,23 @@ for keyword in keywords['Keywords']:
     selected_proxy = random.choice(proxies)
     
     if device == 'mobile':
-        mobile(keyword, sitename, device, useragent, selected_proxy)
+      useragent = ua.random
+      print('Using mobile device with user-agent:', useragent)
+      for keyword in keywords['Keywords']:
+         mobile(keyword, sitename, device, useragent, selected_proxy)
+         t = randint(1, 10)
+         print('Sleeping time is', t, 'Seconds')
+         time.sleep(t)
     elif device == 'desktop':
+       useragent = ua.random
+       print('Using mobile device with user-agent:', useragent)
+       for keyword in keywords['Keywords']:
         desktop(keyword, sitename, device, useragent, selected_proxy)
+        
+        t = randint(1, 10)
+        print('Sleeping time is', t, 'Seconds')
+        time.sleep(t)
+        
     else:
         print(" X_X You didn't specify a user agent. We will still run the script but your filename will have a weird name")
         mobile(keyword, sitename, device, useragent, selected_proxy)

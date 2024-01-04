@@ -14,8 +14,13 @@ import time
 import requests
 
 # Terminal arguments to pass when running the script
+if len(sys.argv) < 3:
+    print("Usage: python rank.py example.com mobile")
+    sys.exit(1)
+
 sitename = sys.argv[1]
 device = sys.argv[2]
+
 
 # 读取代理列表
 with open('GoodProxy.txt', 'r') as proxy_file:
@@ -48,6 +53,12 @@ def desktop(keyword, sitename, device, useragent, proxy):
     browser = create_browser(useragent, proxy)
     
     # 其余 desktop() 函数的代码
+# Keyword file
+keywords = pd.read_excel('keywords.xls')
+# user agent checker. Here depending on what the user agent was passed in th sys arguments we perform different functions.
+
+# Initialize useragent with a default value
+useragent = ''
 
 # 在主循环中选择代理并调用相应的函数
 for keyword in keywords['Keywords']:
